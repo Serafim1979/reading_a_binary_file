@@ -1,7 +1,22 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <fstream>
 
+void read_binary_file(std::vector<STRUCT_NAME> &vec, const std::string &file_path)
+{
+	std::ifstream ifs(file_path, std::ifstream::binary);
+	assert(ifs.is_open());
+	STRUCT_NAME st;
+
+	while (!ifs.eof())
+	{
+		ifs.read(reinterpret_cast<char*>(&st), sizeof(STRUCT_NAME));
+		vec.push_back(st);
+	}
+
+	ifs.close();
+}
 
 int main()
 {
