@@ -26,5 +26,6 @@ void read_binary_file(std::vector<DATA> &vec, const std::string &file_path)
 
 int main()
 {
+	std::cout << "Successfully" << std::endl;
 	return 0;
 }
